@@ -1,0 +1,131 @@
+
+
+.admin-login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a2a22 0%, #27ae60 100%);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.login-card {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.admin-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.login-header h2 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+}
+
+.login-header h2 span {
+    color: #27ae60;
+}
+
+.login-header p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+/* Form Styles */
+.login-form {
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: all 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #27ae60;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(39, 174, 96, 0.2);
+    outline: none;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin-bottom: 25px;
+    color: #7f8c8d;
+}
+
+.form-options a {
+    color: #27ae60;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: #2c3e50; /* Darker for Admin */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background: #1a2a22;
+}
+
+/* Footer Links */
+.login-footer {
+    margin-top: 25px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.login-footer p {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+.login-footer a {
+    color: #27ae60;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-home {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #95a5a6 !important;
+}

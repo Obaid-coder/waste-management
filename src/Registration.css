@@ -1,0 +1,118 @@
+
+
+.register-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.register-card {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Left Side Illustration/Info */
+.register-left {
+    flex: 1;
+    background: #27ae60;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.register-left h2 { font-size: 2rem; margin-bottom: 20px; }
+.register-left h2 span { color: #d1fae5; }
+.register-left p { opacity: 0.9; line-height: 1.6; }
+.register-art { font-size: 6rem; margin-top: 30px; }
+
+/* Right Side Form */
+.register-right {
+    flex: 1.5;
+    padding: 40px;
+}
+
+.register-form h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #64748b;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.input-group input:focus {
+    border-color: #27ae60;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+}
+
+.reg-btn {
+    width: 100%;
+    padding: 14px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.reg-btn:hover { background: #1e8449; }
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.login-link a {
+    color: #27ae60;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .register-card { flex-direction: column; }
+    .register-left { padding: 30px; }
+    .input-row { flex-direction: column; gap: 0; }
+}
