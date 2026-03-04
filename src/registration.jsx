@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Registration.css';
+import axios from 'axios';
 
 function Registration() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -16,15 +18,35 @@ function Registration() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleRegister = (e) => {
-        e.preventDefault();
-        if(formData.password !== formData.confirmPassword) {
-            alert("Passwords do not match!");
-            return;
+    // ... inside the handleRegister function
+const handleRegister = async (e) => {
+    e.preventDefault();
+
+    // Basic Validation
+    if (formData.password !== formData.confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    try {
+        // 2. Send data to Node.js backend
+        const response = await axios.post('http://localhost:5000/api/register', {
+            fullName: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            address: formData.address,
+            password: formData.password // Note: In production, hash this!
+        });
+
+        if (response.status === 201) {
+            alert("Account created successfully! Welcome to EcoWaste.");
+            navigate('/user-login'); // Redirect to login after success
         }
-        console.log("Registering user:", formData);
-        alert("Account created successfully! Welcome to EcoWaste.");
-    };
+    } catch (error) {
+        console.error("Registration error:", error);
+        alert(error.response?.data?.message || "Something went wrong. Please try again.");
+    }
+};
 
     return (
         <div className="register-container">

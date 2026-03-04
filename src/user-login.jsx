@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './UserLogin.css';
 
 function UserLogin() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        console.log("User logging in:", email);
-        alert("Welcome back! Redirecting to your dashboard...");
-    };
+    const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+        const response = await axios.post('http://localhost:5000/api/user-login', { email, password });
+        
+        if (response.data.success) {
+            // Store the user data in the browser
+            localStorage.setItem('user', JSON.stringify(response.data.user));
+            
+            // Navigate to dashboard
+            navigate('/user-dashboard'); 
+        }
+    } catch (error) {
+        alert(error.response?.data?.message || "Login failed");
+    }
+};
 
     return (
         <div className="user-login-container">

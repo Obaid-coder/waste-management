@@ -12,6 +12,7 @@ function Home() {
                     <li><Link to='/contact'>Contact</Link></li>
                     <li><Link to='/admin-login' className="btn-secondary">Admin</Link></li>
                     <li><Link to='/user-login' className="btn-primary">User Login</Link></li>
+                    <li><Link to='/worker-login' className="btn-primary">Worker Login</Link></li>
                 </ul>
             </nav>
 

@@ -1,17 +1,34 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import './AdminLogin.css';
+import axios from 'axios';
 
 function AdminLogin() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        // Logic for Admin Authentication goes here
-        console.log("Admin login attempt:", email);
-        alert("Accessing Admin Dashboard...");
-    };
+    // ... inside AdminLogin component
+const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+        const response = await axios.post('http://localhost:5000/api/admin-login', {
+            email: email,
+            password: password
+        });
+
+        if (response.status === 200) {
+            alert("Accessing Admin Dashboard...");
+            // Optionally save a token or admin data to localStorage
+            localStorage.setItem('isAdminAuthenticated', 'true');
+            navigate('/admin-dashboard');
+        }
+    } catch (error) {
+        console.error("Login error:", error);
+        alert(error.response?.data?.message || "Login failed. Please check your connection.");
+    }
+};
 
     return (
         <div className="admin-login-container">
